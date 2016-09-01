@@ -1,2 +1,2 @@
 # PassGen
-v3
+v3.0
