@@ -4,6 +4,7 @@
 #include <conio.h> 
 #include <time.h> 
 
+
 using namespace std; 
 
 void RUbu(){ 
@@ -36,72 +37,179 @@ void Spec(){
 	n = rand()%7 +1; 
 	printf("%c", n); 
 } 
+
 void Rand(int x){ 
 	switch(x){ 
 		case 0:Spec();break; 
 		case 1:RUbu();break; 
-		case 2:rubu();break; 
-		case 5:Chisl();break; 
+		case 2:rubu();break;  
 		case 3:Englbu();break; 
 		case 4:englbu(); break; 
+		case 5:Chisl();break;
 		default: cout << "ERROR" << endl; break; 
 	} 
 } 
-void Polz(int *a){ 
-	int h; 
-	while(1) {
-		cout << "Do you need special symbols? Press y or n" << endl; 
+
+
+void Polz(int *a){    
+	int h,number,length;
+	
+	cout << "Do you need special symbols? Press y or n" << endl; 
+	do
+	{		
+		h = getch(); 		
+		switch(h){
+			case 'y': 
+			{
+				a[0] = 1;
+				break;
+			}
+			case 'n':
+			{
+				a[0] = 0;
+				break;				
+			}			 					
+		}
+	}while(!((h=='y')||(h=='n')));
+			
+	cout << "Do you need numbers? Press y or n" << endl; 		
+	do
+	{
 		h = getch(); 
 		switch(h){
-			case 'y': a[0] = 1; break;
-			case 'n': a[0] = 0; break;
-			} break;
-		}
-	while(1){	
+			case 'y': 
+			{
+				a[5] = 1;
+				break;
+			}
+			case 'n':
+			{
+				a[5] = 0;
+				break;				
+			}			 					
+		} 
+	}while(!((h=='y')||(h=='n')));	
+	
 	cout << "Do you need russian letters? Press y or n" << endl; 
-	h = getch(); 
-	switch(h){
-		case 'y': {
-			cout << "Do you need capital russian letters? Press y or n" << endl; 
-			h = getch(); 
-				switch(h){
-					case 'y': a[1] = 1; break; 
-					case 'n': a[1] = 0; break;}
-			cout << "Do you need lowercase russian letters? Press y or n" << endl; 
-			h = getch(); 
-				switch(h){
-					case 'y': a[2] = 1; break; 
-					case 'n': a[2] = 0; break;}	
-		} break;
-		case 'n': {
-			a[1] = 0;
-			a[2] = 0;
-		} break;
-		}  
-	} break;
-	while(1){	
+	do
+	{	
+		h = getch(); 
+		switch(h)
+		{
+			case 'y': 
+			{
+				cout << "Do you need capital russian letters? Press y or n" << endl; 
+				h = getch(); 
+				switch(h)
+				{
+					case 'y': 
+					{
+						a[1] = 1;
+						break;
+					}
+					case 'n':
+					{
+						a[1] = 0;
+						break;				
+					}			 				
+				}		
+				cout << "Do you need lowercase russian letters? Press y or n" << endl; 
+				h = getch(); 
+				switch(h)
+				{
+					case 'y': 
+					{
+						a[2] = 1;
+						break;
+					}
+					case 'n':
+					{
+						a[2] = 0;
+						break;				
+					}
+				}
+				break;
+			}
+			case 'n': {
+				a[1] = 0;
+				a[2] = 0;			
+			}				
+		}
+		
+	}while(!((h=='y')||(h=='n')));
+		
 	cout << "Do you need english letters? Press y or n" << endl; 
-	h = getch(); 
-	switch(h){
-		case 'y': {
-			cout << "Do you need capital english letters? Press y or n" << endl; 
-			h = getch(); 
-				switch(h){
-					case 'y': a[3] = 1; break; 
-					case 'n': a[3] = 0; break;}
-			cout << "Do you need lowercase english letters? Press y or n" << endl; 
-			h = getch(); 
-				switch(h){
-					case 'y': a[4] = 1; break; 
-					case 'n': a[4] = 0; break;}	
-		}	break;
-		case 'n': {
-			a[3] = 0;
-			a[4] = 0;
-		} break;
-		}  
-	} break;
+	do
+	{
+	
+		h = getch(); 
+		switch(h){
+			case 'y': 
+			{
+				cout << "Do you need capital english letters? Press y or n" << endl; 
+				do
+				{
+				
+					h = getch(); 
+					switch(h)
+					{
+						case 'y': 
+						{
+							a[3] = 1;
+							break;
+						}
+						case 'n':
+						{
+							a[3] = 0;
+							break;				
+						}			 					
+					}
+				}while(!((h=='y')||(h=='n')));	
+			
+				cout << "Do you need lowercase english letters? Press y or n" << endl; 
+				do
+				{
+				
+					h = getch(); 
+					switch(h)
+					{
+						case 'y': 
+							{
+								a[4] = 1;
+								break;
+							}
+							case 'n':
+							{
+								a[4] = 0;
+								break;				
+							}			 				
+					}
+				
+				}while(!((h=='y')||(h=='n')));
+				break;
+			}
+			case 'n': {
+				a[3] = 0;
+				a[4] = 0;
+			} 
+		}	
+	}while(!((h=='y')||(h=='n')));
+	/*-do
+	{	
+		cout << "Enter quantity of passwords" << endl; 		
+		scanf("%d", &number);
+		if ((number<1)||(number>100)) puts("Invalid value entered\n");				
+	}while((number<1)||(number>100));
+	
+	char tmp1[10];
+	do
+	{	
+		cout << "Input length of password" << endl; 	
+		scanf("%d", &length);
+		if ((length<1)||(length>10000)) puts("Invalid value entered\n");
+	}while((length<1)||(length>10000));*/
 }
+	
 
 
 
