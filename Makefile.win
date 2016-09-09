@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = Pass.gen.o
-LINKOBJ  = Pass.gen.o
+OBJ      = Body.o Lib1.o Lib2.o Lib3.o
+LINKOBJ  = Body.o Lib1.o Lib2.o Lib3.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -24,5 +24,14 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-Pass.gen.o: Pass.gen.cpp
-	$(CPP) -c Pass.gen.cpp -o Pass.gen.o $(CXXFLAGS)
+Body.o: Body.cpp
+	$(CPP) -c Body.cpp -o Body.o $(CXXFLAGS)
+
+Lib1.o: Lib1.cpp
+	$(CPP) -c Lib1.cpp -o Lib1.o $(CXXFLAGS)
+
+Lib2.o: Lib2.cpp
+	$(CPP) -c Lib2.cpp -o Lib2.o $(CXXFLAGS)
+
+Lib3.o: Lib3.cpp
+	$(CPP) -c Lib3.cpp -o Lib3.o $(CXXFLAGS)
